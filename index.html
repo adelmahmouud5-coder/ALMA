@@ -1651,14 +1651,10 @@ function openAdmin(){
   closeAccount();
   document.getElementById('adminOverlay').classList.add('show');
   document.getElementById('adminTitle').textContent = isAdmin ? 'كل الطلبات' : 'اوردراتي';
-  if(isAdmin && adminMustChangePassword){
-    document.getElementById('pwGate').style.display = 'block';
-    document.getElementById('adminMain').style.display = 'none';
-  } else {
-    document.getElementById('pwGate').style.display = 'none';
-    document.getElementById('adminMain').style.display = 'block';
-    loadOrders();
-  }
+  // إجبار تغيير الباسورد اتلغى نهائي — أي حد يسجّل دخول يدخل على طول من غير أي طلب تغيير
+  document.getElementById('pwGate').style.display = 'none';
+  document.getElementById('adminMain').style.display = 'block';
+  loadOrders();
 }
 function closeAdmin(){ document.getElementById('adminOverlay').classList.remove('show'); }
 
